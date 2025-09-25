@@ -1,0 +1,88 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+<div class="calculator">
+  <div class="top-bar">
+    <button class="toggle-theme" title="Tema">
+      <i class="fas fa-sun"></i>
+    </button>
+    <button class="toggle-scientific" title="Modo Científico">
+      <i class="fas fa-flask"></i>
+    </button>
+    <button class="toggle-history" title="Histórico">
+      <i class="fas fa-scroll"></i>
+    </button>
+    <div class="title-wrapper">
+      <div class="calc-title">Calculator</div>
+      <div class="calc-author">by <a href="https://maelgamer998.github.io/sobre">MAEL</a></div>
+    </div>
+  </div>
+  
+  <div class="display" id="display">0</div>
+
+  <div class="memory-row">
+    <button class="btn" data-value="MC">MC</button>
+    <button class="btn" data-value="MR">MR</button>
+    <button class="btn" data-value="M+">M+</button>
+    <button class="btn" data-value="M-">M-</button>
+  </div>
+
+  <div class="scientific-buttons hidden" id="scientific-buttons">
+    <button class="btn" data-value="sin(">sin</button>
+    <button class="btn" data-value="cos(">cos</button>
+    <button class="btn" data-value="tan(">tan</button>
+    <button class="btn" data-value="ln(">ln</button>
+    <button class="btn" data-value="log(">log</button>
+    <button class="btn" data-value="sqrt(">√</button>
+    <button class="btn" data-value="(">(</button>
+    <button class="btn" data-value=")">)</button>
+    <button class="btn" data-value="**">^</button>
+    <button class="btn" data-value="π">π</button>
+    <button class="btn" data-value="e">e</button>
+  </div>
+
+  <div class="buttons">
+    <button class="btn" data-value="7">7</button>
+    <button class="btn" data-value="8">8</button>
+    <button class="btn" data-value="9">9</button>
+    <button class="btn operator" data-value="÷">÷</button>
+
+    <button class="btn" data-value="4">4</button>
+    <button class="btn" data-value="5">5</button>
+    <button class="btn" data-value="6">6</button>
+    <button class="btn operator" data-value="×">×</button>
+
+    <button class="btn" data-value="1">1</button>
+    <button class="btn" data-value="2">2</button>
+    <button class="btn" data-value="3">3</button>
+    <button class="btn operator" data-value="−">−</button>
+
+    <button class="btn" id="backspace">⌫</button>
+    <button class="btn" data-value="0">0</button>
+    <button class="btn" data-value=".">.</button>
+    <button class="btn operator" data-value="+">+</button>
+
+    <button class="btn" id="clear">C</button>
+    <button class="btn" data-value="%">%</button>
+    <button class="btn equals" id="equals">=</button>
+  </div>
+</div>
+
+<div class="history-panel hidden" id="history-panel">
+  <h2>Histórico</h2>
+  <ul id="history-list"></ul>
+  <button id="clear-history">Limpar Histórico</button>
+</div>
+<footer>
+    <p>&copy; 2025 <a href="https://maelgamer998.github.io/sobre" target="_blank">MAEL</a>. Todos os direitos reservados.</p>
+</footer>
+<script src="script.js></script>
+</body>
+</html>

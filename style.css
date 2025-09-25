@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+    padding: 20px;
+}
+body.dark-theme {
+    background: linear-gradient(135deg, #1a1a1a 0%, #222831 100%);
+}
+.calculator-wrapper {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.calculator {
+    background: #f9f9f9;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow:
+      0 8px 16px rgba(0, 0, 0, 0.2),
+      inset 0 0 10px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    min-width: 320px;
+    color: #222;
+}
+body.dark-theme .calculator {
+    background: #2e2e2e;
+    color: #eee;
+    box-shadow:
+      0 8px 16px rgba(0, 0, 0, 0.7),
+      inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+.calculator.scientific-mode {
+    min-width: 400px;
+}
+.top-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.top-bar button {
+    background: #e0e0e0;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 18px;
+    color: #444;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.top-bar button:hover {
+    background: #cfcfcf;
+}
+body.dark-theme .top-bar button {
+    background: #444;
+    color: #eee;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.7);
+}
+body.dark-theme .top-bar button:hover {
+    background: #555;
+}
+.display {
+    background: #555;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 2.2em;
+    text-align: right;
+    margin-bottom: 15px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    word-break: break-word;
+    color: #fff;
+    user-select: none;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+body.dark-theme .display {
+    background: #111;
+}
+.memory-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.scientific-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+.btn {
+    background: #D4D3D3;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    user-select: none;
+}
+.btn:hover {
+    background: #B2B2B1;
+    transform: translateY(-2px);
+}
+body.dark-theme .btn {
+    background: #555;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.7);
+}
+body.dark-theme .btn:hover {
+    background: #888;
+}
+.btn.operator {
+    background: #FE9900;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(255, 152, 0, 0.3);
+}
+.btn.operator:hover {
+    background: #F1B355;
+}
+body.dark-theme .btn.operator {
+    background: #FE9900;
+    color: #fff;
+}
+body.dark-theme .btn.operator:hover {
+    background: #F1B355;
+}
+.btn.equals {
+    background: #5FAF01;
+    color: #fff;
+    grid-column: span 2;
+}
+.btn.equals:hover {
+    background: #9DD25F;
+}
+body.dark-theme .btn.equals {
+    background: #5FAF01;
+    color: #fff;
+}
+body.dark-theme .btn.equals:hover {
+    background: #9DD25F;
+}
+.history-panel {
+    background: #f9f9f9;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.2),
+      inset 0 0 10px rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    min-width: 300px;
+    max-height: 600px;
+    overflow-y: auto;
+    color: #222;
+}
+body.dark-theme .history-panel {
+    background: #2e2e2e;
+    color: #eee;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.8),
+      inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+.history-panel h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+#history-list {
+    list-style: none;
+    margin-bottom: 15px;
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+#history-list li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 0.9em;
+    user-select: none;
+}
+body.dark-theme #history-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#history-list li:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+body.dark-theme #history-list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+#clear-history {
+    width: 100%;
+    padding: 12px;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    box-shadow: 0 3px 8px rgba(244, 67, 54, 0.3);
+}
+#clear-history:hover {
+    background: #d32f2f;
+}
+.hidden {
+    display: none !important;
+}
+.temp-message {
+    color: #4caf50 !important;
+    font-weight: bold;
+}
+.error {
+    color: #f44336 !important;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+@media (max-width: 768px) {
+    .calculator-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .history-panel {
+        min-width: 100%;
+        max-height: 300px;
+        margin-top: 20px;
+    }
+}
+.title-wrapper {
+  margin-left: auto;
+  text-align: right;
+  line-height: 1.2;
+  user-select: none;
+}
+.calc-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #555;
+}
+.calc-author {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #999;
+  margin-top: 2px;
+}
+body.dark-theme .calc-title {
+  color: #ddd;
+}
+body.dark-theme .calc-author {
+  color: #777;
+}
+a {
+  color: #16BCA1;
+  text-decoration: none;
+}
